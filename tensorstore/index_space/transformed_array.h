@@ -441,7 +441,7 @@ class TransformedArray {
   /// \param constraints If `constraints.allocate_constraint() == may_allocate`,
   ///     the returned array may refer to `element_pointer`.
   template <ArrayOriginKind OriginKind = offset_origin>
-  Result<SharedArray<const Element, Rank, OriginKind>> Materialize(
+  Result<SharedArray<Element, Rank, OriginKind>> Materialize(
       TransformArrayConstraints constraints = skip_repeated_elements) const {
     return TransformArray<OriginKind>(UnownedToShared(base_array()),
                                       transform(), constraints);
